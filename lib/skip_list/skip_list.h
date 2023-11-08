@@ -4,6 +4,7 @@
 // Definindo a estrutura do nó
 typedef struct Node
 {
+    char key[11];
     int value;
     struct Node **next;
 } Node;
