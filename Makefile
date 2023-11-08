@@ -1,12 +1,12 @@
 CC = gcc
 program = main
 
-all: ./main.c ./lib/skip_list/skip_list.c ./lib/skip_list/skip_list.h
-	$(CC) -o $(program) ./main.c ./lib/skip_list/skip_list.c
+all: ./main.c
+	$(CC) -o $(program) ./main.c 
 
 clean:
 	rm -r /lib/*/*.o $(program)
 
 run:
-	$(CC) -o $(program) ./main.c ./lib/skip_list/skip_list.c
+	$(CC) -o $(program) ./main.c
 	./$(program)
