@@ -19,13 +19,13 @@ typedef struct SkipList
     Node *head;
 } SkipList;
 
-SkipList *initializeSkipList(int maxLevels);
-Node *search(SkipList *list, int target);
-int contains(SkipList *list, int target);
-int generateRandomLevel(int maxLevels);
+void initializeSkipList(SkipList *list);
+Node *search(SkipList *list, char *target);
+int contains(SkipList *list, char *target);
+int generateRandomLevel();
 void insert(SkipList *list, char *key, char *value);
 void freeSkipList(SkipList *list);
-void delete(SkipList *list, int target);
+void delete(SkipList *list, char *target);
 void printSkipList(SkipList *list);
 
 #endif

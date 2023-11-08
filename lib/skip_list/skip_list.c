@@ -82,6 +82,7 @@ int contains(SkipList *list, char *target)
 // Função para inserir um elemento na skip-list
 void insert(SkipList *list, char *key, char *value)
 {
+    Node *update[MAX_LEVELS + 1];
     int level = generateRandomLevel();
 
     if (level > list->currentLevels)
@@ -99,7 +100,6 @@ void insert(SkipList *list, char *key, char *value)
     target->value = strdup(value);
     target->next = (Node **)malloc(sizeof(Node *) * (level + 1));
 
-    Node *update[MAX_LEVELS + 1];
     Node *current = list->head;
 
     for (int i = level; i >= 1; i--)
@@ -152,7 +152,7 @@ void freeSkipList(SkipList *list)
 }
 
 // Função para deletar um elemento da skip-list
-void delete(SkipList *list, int target)
+void delete(SkipList *list, char *target)
 {
     Node *update[list->maxLevels];
     Node *current = list->head;
@@ -186,12 +186,12 @@ void delete(SkipList *list, int target)
 // Função para printar a skip-list
 void printSkipList(SkipList *list)
 {
-    Node *current = list->head->next[0];
+    Node *current = list->head;
 
-    while (current != NULL)
+    while (current && current->next[1] != list->head)
     {
-        printf("%d ", current->value);
-        current = current->next[0];
+        printf("%s[%s]->", current->next[1]->key, current->next[1]->value);
+        current = current->next[1];  
     }
 
     printf("\n");
