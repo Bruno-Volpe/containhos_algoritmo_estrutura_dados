@@ -5,12 +5,12 @@
 int main()
 {
     char op;
-
-    SkipList list = initializeSkipList(6);
+    SkipList list;
+    initializeSkipList(&list);
 
     while (1)
     {
-        scanf(" %c", &op);
+        scanf("%c", &op);
 
         // Sair do loop infinito
         if (op == '0')
