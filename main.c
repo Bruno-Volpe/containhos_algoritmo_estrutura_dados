@@ -6,7 +6,7 @@ int main()
 {
     char op;
 
-    initializeSkipList(6);
+    SkipList list = initializeSkipList(6);
 
     while (1)
     {
