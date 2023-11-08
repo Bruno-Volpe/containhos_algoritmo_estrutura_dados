@@ -19,7 +19,7 @@ int main()
             break;
         }
 
-        // Dados pelo enuciado
+        // Dados pelo enunciado
         char name[11];
         char number[10];
 
@@ -41,7 +41,7 @@ int main()
         {
             scanf("%s %s", name, number);
 
-            if (exists(&list, name) == 1)
+            if (contains(&list, name) == 1)
             {
                 printf("Contatinho ja inserido\n");
             }
@@ -54,7 +54,7 @@ int main()
         {
             scanf("%s %s", name, number);
 
-            if (exists(&list, name) == 0)
+            if (contains(&list, name) == 0)
             {
                 printf("Operacao invalida: contatinho nao encontrado\n");
             }
@@ -67,7 +67,7 @@ int main()
         {
             scanf("%s", name);
 
-            if (exists(&list, name) == 0)
+            if (contains(&list, name) == 0)
             {
                 printf("Operacao invalida: contatinho nao encontrado\n");
             }
@@ -77,6 +77,8 @@ int main()
             }
         }
     }
+
+    freeSkipList(&list); // Liberar a memória da skip-list antes de encerrar o programa
 
     return 0;
 }
