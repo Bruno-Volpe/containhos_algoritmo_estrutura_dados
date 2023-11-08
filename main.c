@@ -3,7 +3,7 @@
 #include <string.h>
 
 
-#define MAX_LEVELS 6
+#define MAX_LEVELS 5
 
 // Definindo a estrutura do nó
 typedef struct Node
@@ -36,10 +36,11 @@ void freeNode(Node* current) {
 int generateRandomLevel()
 {
     int level = 1;
-    while (rand() % 2 && level < MAX_LEVELS)
+    while (rand() < RAND_MAX / 2 && level < MAX_LEVELS)
     {
         level++;
     }
+
     return level;
 }
 
